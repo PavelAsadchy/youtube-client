@@ -1,1 +1,16 @@
-<p>search-results works!</p>
+<ul
+    class="search-results"
+    *ngIf="searchInputService.searchInput">
+    <li
+        class="search-results__item"
+        *ngFor="let searchItem of searchResults
+            | sortByDate:searchOptionsService.isSortingByDateMode:searchOptionsService.sortByDateUp
+            | sortByViews:searchOptionsService.isSortingByViewsMode:searchOptionsService.sortByViewsUp
+            | searchName:searchOptionsService.searchNameStr">
+
+        <app-search-item
+            [item]="searchItem">
+        </app-search-item>
+
+    </li>
+</ul>

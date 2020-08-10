@@ -1,7 +1,7 @@
 import { SearchItemThumbnails } from './search-item-thumbnails.model';
 
 export interface SearchItemSnippet {
-    publishedAt: Date;
+    publishedAt: string;
     channelId: string;
     title: string;
     description: string;
@@ -16,6 +16,7 @@ export interface SearchItemSnippet {
     tags: string[];
     categoryId: string;
     liveBroadcastContent: string;
+    defaultLanguage?: string;
     localized: {
         title: string,
         description: string

@@ -1,0 +1,41 @@
+.search-input {
+	position: relative;
+
+	&__search-block {
+		display: flex;
+		align-items: center;
+	}
+
+	&__field {
+		margin-left: 10px;
+		min-width: 400px;
+		border: none;
+		line-height: 26px;
+	}
+
+	&__search-btn {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	&__settings-btn {
+		margin-left: 10px;
+		padding: 0 5px;
+		min-width: 0;
+	}
+
+	&__sorting-options {
+		position: absolute;
+		bottom: -50px;
+	}
+}
+
+.fa-youtube-play {
+	color: #3f51b5;
+	font-size: 3rem;
+}
+
+.mat-raised-button {
+	line-height: 26px;
+	font-weight: normal;
+}
