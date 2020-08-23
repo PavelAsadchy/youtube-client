@@ -13,8 +13,12 @@ export class SortByViewsPipe implements PipeTransform {
                     +a.statistics.viewCount - +b.statistics.viewCount)
                 : searchResults.sort((a: SearchItem, b: SearchItem) =>
                     +b.statistics.viewCount - +a.statistics.viewCount);
+
+                const newArr: SearchItem[] = searchResults.slice();
+                console.log(newArr[0].statistics.viewCount);
+                return newArr;
+            } else {
+                return searchResults;
             }
-            const newArr: SearchItem[] = searchResults.slice();
-            return newArr;
     }
 }

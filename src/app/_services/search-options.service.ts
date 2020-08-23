@@ -24,6 +24,8 @@ export class SearchOptionsService {
     }
 
     public sortByDateToggle(): void {
+        this.isSortingByViewsMode = false;
+
         if (!this.isSortingByDateMode) {
             this.isSortingByDateMode = true;
             this.sortByDateUp = !this.sortByDateUp;
@@ -33,6 +35,8 @@ export class SearchOptionsService {
     }
 
     public sortByViewsToggle(): void {
+        this.isSortingByDateMode = false;
+
         if (!this.isSortingByViewsMode) {
             this.isSortingByViewsMode = true;
             this.sortByViewsUp = !this.sortByViewsUp;

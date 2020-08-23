@@ -19,8 +19,12 @@ export class SortByDatePipe implements PipeTransform {
                     const end: any = new Date(b.snippet.publishedAt);
                     return (end - start);
                 });
+
+                const newArr: SearchItem[] = searchResults.slice();
+                console.log(newArr[0].snippet.publishedAt);
+                return newArr;
+            } else {
+                return searchResults;
             }
-            const newArr: SearchItem[] = searchResults.slice();
-            return newArr;
     }
 }
