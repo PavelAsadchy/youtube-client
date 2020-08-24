@@ -1,14 +1,20 @@
+:host {
+	width: 100%;
+}
+
 .search-input {
 	position: relative;
 
 	&__search-block {
 		display: flex;
+		justify-content: center;
 		align-items: center;
 	}
 
 	&__field {
+		flex: 1 0 120px;
+		max-width: 400px;
 		margin-left: 10px;
-		min-width: 400px;
 		border: none;
 		line-height: 26px;
 	}
