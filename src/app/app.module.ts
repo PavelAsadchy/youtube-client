@@ -19,6 +19,9 @@ import { SearchPipe } from './_pipes/search.pipe';
 import { SortByViewsPipe } from './_pipes/sortByViews.pipe';
 import { SortByDatePipe } from './_pipes/sortByDate.pipe';
 import { BorderBottomColorDirective } from './_directives/border-bottom-color.directive';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { DetailedInformationComponent } from './components/detailed-information/detailed-information.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { BorderBottomColorDirective } from './_directives/border-bottom-color.di
     SortByViewsPipe,
     SortByDatePipe,
     SearchPipe,
-    BorderBottomColorDirective
+    BorderBottomColorDirective,
+    LoginPageComponent,
+    NotFoundComponent,
+    DetailedInformationComponent
   ],
   imports: [
     BrowserModule,
