@@ -12,6 +12,10 @@ export class SearchInputService {
     constructor() { }
 
     public showSearchResult(): void {
-        this.isSearchResultShown = true;
+        if (this.searchInput) {
+            this.isSearchResultShown = true;
+        } else {
+            this.isSearchResultShown = false;
+        }
     }
 }
