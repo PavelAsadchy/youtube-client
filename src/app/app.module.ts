@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { SearchPipe } from './_pipes/search.pipe';
 import { SortByViewsPipe } from './_pipes/sortByViews.pipe';
 import { SortByDatePipe } from './_pipes/sortByDate.pipe';
+import { BorderBottomColorDirective } from './_directives/border-bottom-color.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SortByDatePipe } from './_pipes/sortByDate.pipe';
     SearchInputComponent,
     SortByViewsPipe,
     SortByDatePipe,
-    SearchPipe
+    SearchPipe,
+    BorderBottomColorDirective
   ],
   imports: [
     BrowserModule,

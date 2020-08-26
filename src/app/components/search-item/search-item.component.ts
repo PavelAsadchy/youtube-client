@@ -13,39 +13,21 @@ export class SearchItemComponent implements OnInit {
 
     public publishedAt: Date = null;
 
-    public cardBorderStyle: {} = null;
+    public datesLag: number = null;
 
     constructor() { }
 
     public ngOnInit(): void {
         this.setPublishedAt();
-        const today: Date = new Date();
-        const datesLag: number = ((today.getTime() - this.publishedAt.getTime()) / (1000 * 3600 * 24));
-        switch (true) {
-            case (datesLag < 7):
-                this.cardBorderStyle = {
-                    'border-bottom': '5px solid blue'
-                };
-                break;
-            case (datesLag < 30):
-                this.cardBorderStyle = {
-                    'border-bottom': '5px solid green'
-                };
-                break;
-            case (datesLag < 180):
-                this.cardBorderStyle = {
-                    'border-bottom': '5px solid orange'
-                };
-                break;
-
-            default:
-                this.cardBorderStyle = {
-                    'border-bottom': '5px solid red'
-                };
-        }
+        this.setDatesLag();
     }
 
     public setPublishedAt(): void {
         this.publishedAt = new Date(this.item.snippet.publishedAt);
+    }
+
+    public setDatesLag(): void {
+        const today: Date = new Date();
+        this.datesLag = ((today.getTime() - this.publishedAt.getTime()) / (1000 * 3600 * 24));
     }
 }
