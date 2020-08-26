@@ -1,6 +1,6 @@
 <ul
     class="search-results"
-    *ngIf="searchInputService.searchInput">
+    *ngIf="searchInputService.isSearchResultShown">
     <li
         class="search-results__item"
         *ngFor="let searchItem of searchResults
