@@ -14,7 +14,7 @@ import { SearchItemComponent } from './components/search-item/search-item.compon
 import { RegistrationComponent } from './components/registration/registration.component';
 import { SearchInputComponent } from './components/search-input/search-input.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchPipe } from './_pipes/search.pipe';
 import { SortByViewsPipe } from './_pipes/sortByViews.pipe';
 import { SortByDatePipe } from './_pipes/sortByDate.pipe';
@@ -47,7 +47,8 @@ import { DetailedInformationComponent } from './components/detailed-information/
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
