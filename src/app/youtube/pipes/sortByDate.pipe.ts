@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { SearchItem } from 'src/app/_models/search-item.model';
+import { SearchItem } from 'src/app/youtube/models/search-item.model';
 
 @Pipe({
     name: 'sortByDate'
@@ -21,7 +21,6 @@ export class SortByDatePipe implements PipeTransform {
                 });
 
                 const newArr: SearchItem[] = searchResults.slice();
-                console.log(newArr[0].snippet.publishedAt);
                 return newArr;
             } else {
                 return searchResults;

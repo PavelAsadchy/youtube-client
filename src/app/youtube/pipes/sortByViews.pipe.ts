@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { SearchItem } from 'src/app/_models/search-item.model';
+import { SearchItem } from 'src/app/youtube/models/search-item.model';
 
 @Pipe({
     name: 'sortByViews'
@@ -15,7 +15,6 @@ export class SortByViewsPipe implements PipeTransform {
                     +b.statistics.viewCount - +a.statistics.viewCount);
 
                 const newArr: SearchItem[] = searchResults.slice();
-                console.log(newArr[0].statistics.viewCount);
                 return newArr;
             } else {
                 return searchResults;
