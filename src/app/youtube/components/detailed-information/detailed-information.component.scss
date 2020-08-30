@@ -1,8 +1,105 @@
-.detailed-information{
+@import "../../../shared/UI/colors.scss";
+
+h1, h3, h5, p {
+    margin: 0;
+}
+
+.detailed-information {
     display: flex;
     flex-direction: row;
+    position: relative;
+    top: 200px;
+    width: 90%;
+    height: calc(100% - 300px);
+    margin:  20px auto;
+    background: $background-light;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px 1px rgba(63,81,181,.25);
+
+    &__return {
+        position: absolute;
+        top: 0;
+        right: 100%;
+        cursor: pointer;
+        color: $background-light;
+        background-color: $primary;
+    }
 
     &__image {
-        width: 100%;
+        width: 70%;
+        object-fit: cover;
+        object-position: 0 0;
     }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__heading {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        &-title {
+            font-weight: bold;
+        }
+    
+        &-published {
+            color: $text;
+        }
+    }
+
+    &__description {
+        margin-top: 30px;
+
+        &-header {
+            font-weight: 500;
+        }
+
+        &-content {
+            overflow: hidden;
+            color: $text;
+            font-size: .8rem;
+            line-height: 1;
+        }
+    }
+
+    &__statistics {
+		display: flex;
+		justify-content: center;
+        align-items: center;
+        font-size: .8rem;
+        font-weight: bold;
+
+		&-item {
+			display: flex;
+            align-items: center;
+            margin: 0 10px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            & > mat-icon {
+                transform: scale(.8);
+            }
+            
+            & > span {
+                margin-left: 5px;
+            }
+		}
+	}
 }

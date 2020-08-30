@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { SearchResultsComponent } from './youtube/components/search-results/search-results.component';
 import { LoginPageComponent } from './auth/components/login-page/login-page.component';
 import { NotFoundComponent } from './youtube/components/not-found/not-found.component';
+import { DetailedInformationComponent } from './youtube/components/detailed-information/detailed-information.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
     {
@@ -16,7 +18,12 @@ const routes: Routes = [
     },
     {
         path: 'search',
-        component: SearchResultsComponent
+        component: SearchResultsComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'search/:id',
+        component: DetailedInformationComponent
     },
     {
         path: '**',

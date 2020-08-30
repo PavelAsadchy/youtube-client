@@ -1,24 +1,51 @@
-<mat-card class="detailed-information">
-    <!-- <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header> -->
-    <div class="detailed-information__image">
-        <img
-        mat-card-image
-        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-        alt="Photo of a Shiba Inu">
-    </div>
-    <mat-card-content>
-        <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-        </p>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-    </mat-card-actions>
-</mat-card>
+<div class="detailed-information">
+    <mat-icon
+        class="detailed-information__return"
+        (click)="returnToSearchResults()">
+        keyboard_arrow_left
+    </mat-icon>
+    <img
+        class="detailed-information__image"
+        src="{{ detailedInformationService.selectedItem.snippet.thumbnails.maxres.url }}"
+        alt="{{ detailedInformationService.selectedItem.snippet.title }}">
+
+    <div class="detailed-information__content">
+        <div class="detailed-information__text">
+            <div class="detailed-information__heading">
+                <h1 class="detailed-information__heading-title">
+                    {{ detailedInformationService.selectedItem.snippet.title }}
+                </h1>
+                <h5 class="detailed-information__heading-published">
+                    {{ detailedInformationService.selectedItem.snippet.publishedAt | date: "fullDate" }}
+                </h5>
+            </div>
+            <div class="detailed-information__description">
+                <h3 class="detailed-information__description-header">
+                    Description:
+                </h3>
+                <p class="detailed-information__description-content">
+                    {{ detailedInformationService.selectedItem.snippet.description }}
+                </p>
+            </div>
+        </div>
+        
+        <div class="detailed-information__statistics">
+            <div class="detailed-information__statistics-item">
+                <mat-icon>visibility</mat-icon>
+                <span>{{ detailedInformationService.selectedItem.statistics.viewCount }}</span>
+            </div>
+            <div class="detailed-information__statistics-item">
+                <mat-icon>thumb_up</mat-icon>
+                <span>{{ detailedInformationService.selectedItem.statistics.likeCount }}</span>
+            </div>
+            <div class="detailed-information__statistics-item">
+                <mat-icon>thumb_down</mat-icon>
+                <span>{{ detailedInformationService.selectedItem.statistics.dislikeCount }}</span>
+            </div>
+            <div class="detailed-information__statistics-item">
+                <mat-icon>mode_comment</mat-icon>
+                <span>{{ detailedInformationService.selectedItem.statistics.commentCount }}</span>
+            </div>
+        </div>
+    </div>    
+</div>

@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { SearchItem } from 'src/app/youtube/models/search-item.model';
+import { EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-search-item',
@@ -15,6 +16,9 @@ export class SearchItemComponent implements OnInit {
 
     public datesLag: number = null;
 
+    @Output()
+    public selectedItem: EventEmitter<SearchItem> = new EventEmitter<SearchItem>();
+
     constructor() { }
 
     public ngOnInit(): void {
@@ -29,5 +33,9 @@ export class SearchItemComponent implements OnInit {
     public setDatesLag(): void {
         const today: Date = new Date();
         this.datesLag = ((today.getTime() - this.publishedAt.getTime()) / (1000 * 3600 * 24));
+    }
+
+    public selectItem(): void {
+        this.selectedItem.emit(this.item);
     }
 }

@@ -9,10 +9,9 @@
             | searchName:searchOptionsService.searchNameStr">
 
         <app-search-item
-            [item]="searchItem">
+            [item]="searchItem"
+            (selectedItem)="selectItem($event)">
         </app-search-item>
 
     </li>
 </ul>
-
-<app-detailed-information></app-detailed-information>
