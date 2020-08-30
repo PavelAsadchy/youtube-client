@@ -52,7 +52,8 @@ import { DetailedInformationComponent } from './components/detailed-information/
     ],
     providers: [],
     exports: [
-        SearchResultsComponent
+        SearchResultsComponent,
+        NotFoundComponent
     ]
     // bootstrap: [AppComponent]
 })

@@ -1,38 +1,38 @@
 <mat-card
-    class="example-card"
+    class="search-item"
     appBorderBottomColor [datesLag]="datesLag">
 
-    <div class="example-card__content">
+    <div class="search-item__content">
         <img
             mat-card-image
             src="{{ item.snippet.thumbnails.maxres.url }}"
             alt="{{ item.snippet.title }}">
 
-        <div class="example-card__statistics">
-            <div class="example-card__statistics-item">
+        <div class="search-item__statistics">
+            <div class="search-item__statistics-item">
                 <mat-icon>visibility</mat-icon>
                 <span>{{ item.statistics.viewCount }}</span>
             </div>
-            <div class="example-card__statistics-item">
+            <div class="search-item__statistics-item">
                 <mat-icon>thumb_up</mat-icon>
                 <span>{{ item.statistics.likeCount }}</span>
             </div>
-            <div class="example-card__statistics-item">
+            <div class="search-item__statistics-item">
                 <mat-icon>thumb_down</mat-icon>
                 <span>{{ item.statistics.dislikeCount }}</span>
             </div>
-            <div class="example-card__statistics-item">
+            <div class="search-item__statistics-item">
                 <mat-icon>mode_comment</mat-icon>
                 <span>{{ item.statistics.commentCount }}</span>
             </div>
         </div>
 
-        <p class="example-card__title">
+        <p class="search-item__title">
             {{ item.snippet.title }}
         </p>
     </div>
 
-    <div class="example-card__action">
+    <div class="search-item__action">
         <button mat-raised-button color="primary">more...</button>
     </div>
 

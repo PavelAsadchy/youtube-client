@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-login-page',
@@ -13,10 +14,11 @@ export class LoginPageComponent {
         password: new FormControl('', Validators.required)
     });
 
-    constructor() { }
+    constructor(private router: Router) { }
 
     public onSubmit(): void {
         console.log('submit');
+        this.router.navigate(['/search']);
     }
 
 }

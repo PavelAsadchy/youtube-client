@@ -1,0 +1,8 @@
+.detailed-information{
+    display: flex;
+    flex-direction: row;
+
+    &__image {
+        width: 100%;
+    }
+}
