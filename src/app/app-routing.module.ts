@@ -4,7 +4,7 @@ import { SearchResultsComponent } from './youtube/components/search-results/sear
 import { LoginPageComponent } from './auth/components/login-page/login-page.component';
 import { NotFoundComponent } from './youtube/components/not-found/not-found.component';
 import { DetailedInformationComponent } from './youtube/components/detailed-information/detailed-information.component';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
     {

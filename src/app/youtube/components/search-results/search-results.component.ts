@@ -5,6 +5,7 @@ import { SearchOptionsService } from 'src/app/shared/services/search-options.ser
 import { SearchInputService } from 'src/app/shared/services/search-input.service';
 import { DetailedInformationService } from '../../services/detailed-information.service';
 import { Router } from '@angular/router';
+import { NavigateService } from 'src/app/shared/services/navigate.service';
 
 @Component({
     selector: 'app-search-results',
@@ -18,14 +19,16 @@ export class SearchResultsComponent implements OnInit {
     constructor(public searchOptionsService: SearchOptionsService,
                 public searchInputService: SearchInputService,
                 public detailedInformationService: DetailedInformationService,
-                private router: Router) { }
+                private router: Router,
+                public navigateService: NavigateService) { }
 
     public ngOnInit(): void {
     }
 
     public selectItem(selectedItem: SearchItem): void {
         this.detailedInformationService.selectedItem = selectedItem;
-        this.router.navigate(['/search', this.detailedInformationService.selectedItem.id]);
+        // this.router.navigate(['/search', this.detailedInformationService.selectedItem.id]);
+        this.navigateService.navigateTo(['/search', this.detailedInformationService.selectedItem.id]);
     }
 
 }

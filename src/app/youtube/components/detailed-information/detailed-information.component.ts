@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DetailedInformationService } from '../../services/detailed-information.service';
 import { Router } from '@angular/router';
+import { NavigateService } from 'src/app/shared/services/navigate.service';
 
 @Component({
     selector: 'app-detailed-information',
@@ -10,10 +11,10 @@ import { Router } from '@angular/router';
 export class DetailedInformationComponent {
 
     constructor(public detailedInformationService: DetailedInformationService,
-                private router: Router) { }
+                public navigateService: NavigateService) { }
 
     public returnToSearchResults(): void {
-        this.router.navigate(['/search']);
+        this.navigateService.navigateTo(['/search']);
     }
 
 }

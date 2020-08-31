@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
+import { NavigateService } from 'src/app/shared/services/navigate.service';
 
 @Component({
     selector: 'app-login-page',
@@ -16,18 +17,18 @@ export class LoginPageComponent implements OnInit {
     });
 
     constructor(public loginService: LoginService,
-                private router: Router) { }
+                public navigateService: NavigateService) { }
 
     public ngOnInit(): void {
         const savedAuthToken: any = this.loginService.getAuthToken();
         if (savedAuthToken) {
-            this.router.navigate(['/search']);
+            this.navigateService.navigateTo(['/search']);
         }
     }
 
     public onSubmit(): void {
         this.loginService.saveAuthToken(this.loginForm.value);
-        this.router.navigate(['/search']);
+        this.navigateService.navigateTo(['/search']);
     }
 
 }
