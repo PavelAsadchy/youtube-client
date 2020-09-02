@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
 import { SearchOptionsService } from 'src/app/shared/services/search-options.service';
 import { SearchInputService } from 'src/app/shared/services/search-input.service';
 

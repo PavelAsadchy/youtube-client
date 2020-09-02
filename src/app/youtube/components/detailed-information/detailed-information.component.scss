@@ -26,6 +26,7 @@ h1, h3, h5, p {
     }
 
     &__image {
+        z-index: 2000;
         width: 70%;
         object-fit: cover;
         object-position: 0 0;

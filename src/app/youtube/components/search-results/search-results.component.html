@@ -3,7 +3,7 @@
     *ngIf="searchInputService.isSearchResultShown">
     <li
         class="search-results__item"
-        *ngFor="let searchItem of searchResults
+        *ngFor="let searchItem of youtubeService.searchResults
             | sortByDate:searchOptionsService.isSortingByDateMode:searchOptionsService.sortByDateUp
             | sortByViews:searchOptionsService.isSortingByViewsMode:searchOptionsService.sortByViewsUp
             | searchName:searchOptionsService.searchNameStr">

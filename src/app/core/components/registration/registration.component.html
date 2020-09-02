@@ -1,4 +1,19 @@
 <div class="registration">
-	<span class="registration__name">Your Name</span>
-	<mat-icon color="primary">person</mat-icon>
+	<span class="registration__name">
+		{{ loginService.authName }}
+	</span>
+
+	<mat-icon
+		color="primary"
+		*ngIf="!loginService.isUserAuthorised">
+		person
+	</mat-icon>
+
+	<mat-icon
+		color="primary"
+		style="cursor: pointer"
+		*ngIf="loginService.isUserAuthorised"
+		(click)="loginService.logOut()">
+		cancel
+	</mat-icon>
 </div>

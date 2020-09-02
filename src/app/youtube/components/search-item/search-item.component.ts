@@ -14,6 +14,7 @@ export class SearchItemComponent implements OnInit {
 
     public publishedAt: Date = null;
 
+    @Output()
     public datesLag: number = null;
 
     @Output()

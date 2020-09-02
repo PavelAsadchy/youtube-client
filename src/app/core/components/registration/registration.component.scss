@@ -1,6 +1,7 @@
 .registration {
 	display: flex;
 	align-items: center;
+	min-width: 100px;
 
 	&__name {
 		font-size: 0.8rem;

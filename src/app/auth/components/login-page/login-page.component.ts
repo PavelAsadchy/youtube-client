@@ -20,8 +20,8 @@ export class LoginPageComponent implements OnInit {
                 public navigateService: NavigateService) { }
 
     public ngOnInit(): void {
-        const savedAuthToken: any = this.loginService.getAuthToken();
-        if (savedAuthToken) {
+        const response: any = this.loginService.getAuthToken();
+        if (response) {
             this.navigateService.navigateTo(['/search']);
         }
     }
