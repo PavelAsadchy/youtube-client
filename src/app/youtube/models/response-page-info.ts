@@ -1,4 +1,4 @@
-export interface PageInfo {
+export interface ResponsePageInfo {
     totalResults: number;
     resultsPerPage: number;
 }

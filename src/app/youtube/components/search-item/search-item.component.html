@@ -5,7 +5,9 @@
     <div class="search-item__content">
         <img
             mat-card-image
-            src="{{ item.snippet.thumbnails.maxres.url }}"
+            src="{{ item.snippet.thumbnails.maxres
+                    ? item.snippet.thumbnails.maxres.url
+                    : item.snippet.thumbnails.high.url}}"
             alt="{{ item.snippet.title }}">
 
         <div class="search-item__statistics">

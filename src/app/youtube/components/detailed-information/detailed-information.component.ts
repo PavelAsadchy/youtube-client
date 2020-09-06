@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DetailedInformationService } from '../../services/detailed-information.service';
 import { NavigateService } from 'src/app/shared/services/navigate.service';
 

@@ -4,14 +4,7 @@
         <input
             class="search-input__field"
             type="search"
-            [(ngModel)]="searchInputService.searchInput">
-        <button
-            mat-raised-button
-            color="primary"
-            class="search-input__search-btn"
-            (click)="searchInputService.showSearchResult()">
-            search
-        </button>
+            #searchInput>
         <button
             mat-raised-button
             color="primary"

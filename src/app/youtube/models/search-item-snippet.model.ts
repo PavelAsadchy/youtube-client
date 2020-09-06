@@ -9,17 +9,18 @@ export interface SearchItemSnippet {
         default: SearchItemThumbnails,
         medium: SearchItemThumbnails,
         high: SearchItemThumbnails,
-        standard: SearchItemThumbnails,
-        maxres: SearchItemThumbnails
+        standard?: SearchItemThumbnails,
+        maxres?: SearchItemThumbnails
     };
     channelTitle: string;
-    tags: string[];
-    categoryId: string;
+    tags?: string[];
+    categoryId?: string;
     liveBroadcastContent: string;
     defaultLanguage?: string;
-    localized: {
+    localized?: {
         title: string,
         description: string
     };
     defaultAudioLanguage: string;
+    publishTime?: string;
 }
