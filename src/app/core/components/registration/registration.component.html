@@ -1,18 +1,18 @@
 <div class="registration">
 	<span class="registration__name">
-		{{ loginService.authName }}
+		{{ loginService.authName$ | async }}
 	</span>
 
 	<mat-icon
 		color="primary"
-		*ngIf="!loginService.isUserAuthorised">
+		*ngIf="!loginService.isUserAuthorised$">
 		person
 	</mat-icon>
 
 	<mat-icon
 		color="primary"
 		style="cursor: pointer"
-		*ngIf="loginService.isUserAuthorised"
+		*ngIf="loginService.isUserAuthorised$"
 		(click)="loginService.logOut()">
 		cancel
 	</mat-icon>

@@ -15,11 +15,14 @@ export class LoginPageComponent implements OnInit {
         password: new FormControl('', Validators.required)
     });
 
+    public authName: string = '';
+
     constructor(public loginService: LoginService,
                 public navigateService: NavigateService) { }
 
     public ngOnInit(): void {
         const response: any = this.loginService.getAuthToken();
+        console.log(response);
         if (response) {
             this.navigateService.navigateTo(['/search']);
         }
