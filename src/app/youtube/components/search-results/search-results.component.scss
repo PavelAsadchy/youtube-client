@@ -17,3 +17,10 @@
 		top: -50px;
 	}
 }
+
+.mat-spinner {
+	position: absolute;
+	top: 250px;
+	left: 50%;
+	transform: translateX(-50%);;
+}

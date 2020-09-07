@@ -4,6 +4,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -17,6 +18,7 @@ import { CommonModule } from '@angular/common';
         MatButtonModule,
         MatCardModule,
         MatIconModule,
+        MatProgressSpinnerModule,
         ReactiveFormsModule
     ],
     providers: [],
@@ -27,6 +29,7 @@ import { CommonModule } from '@angular/common';
         MatButtonModule,
         MatCardModule,
         MatIconModule,
+        MatProgressSpinnerModule,
         ReactiveFormsModule
     ]
 })

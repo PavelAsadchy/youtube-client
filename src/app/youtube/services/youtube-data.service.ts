@@ -23,8 +23,6 @@ export class YoutubeDataService {
         part: 'snippet,statistics',
     };
 
-    private videoSearchUrl: string = 'https://www.googleapis.com/youtube/v3/videos';
-
     private apiKey: string = 'AIzaSyD_9dpznUMdzn-tDiVIzlFvt3UrBFlUqB8';
 
     constructor(private httpClient: HttpClient) { }

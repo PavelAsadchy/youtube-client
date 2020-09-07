@@ -31,6 +31,7 @@ export class SearchInputComponent implements AfterViewInit, OnDestroy {
         ).subscribe((searchRequest: string) => {
             if (searchRequest) {
                 this.youtubeService.searchRequest$.emit(searchRequest);
+                this.youtubeService.startLoading();
             }
         });
     }
