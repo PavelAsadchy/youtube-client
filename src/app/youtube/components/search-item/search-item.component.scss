@@ -10,7 +10,11 @@
     &__content {
         border-top-left-radius: inherit;
         border-top-right-radius: inherit;
-    }
+	}
+	
+	&__img {
+		max-height: 186.75px;
+	}
 
 	&__statistics {
 		display: flex;

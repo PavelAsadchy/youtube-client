@@ -30,12 +30,10 @@ export class YoutubeService {
     private initSearchResults(searchResults: SearchItem[]): void {
         this.searchResults = searchResults;
         this.isLoading$.next(false);
-        console.log('end');
     }
 
     public startLoading(): void {
         this.isLoading$.next(true);
-        console.log('start');
     }
 
 }

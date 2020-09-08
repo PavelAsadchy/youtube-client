@@ -8,7 +8,9 @@
     </mat-icon>
     <img
         class="detailed-information__image"
-        src="{{ detailedInformationService.selectedItem.snippet.thumbnails.maxres.url }}"
+        src="{{ detailedInformationService.selectedItem.snippet.thumbnails.maxres
+                ? detailedInformationService.selectedItem.snippet.thumbnails.maxres.url
+                : detailedInformationService.selectedItem.snippet.thumbnails.high.url }}"
         alt="{{ detailedInformationService.selectedItem.snippet.title }}">
 
     <div class="detailed-information__content">
