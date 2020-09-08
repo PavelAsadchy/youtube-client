@@ -13,6 +13,7 @@ export class DetailedInformationComponent {
                 public navigateService: NavigateService) { }
 
     public returnToSearchResults(): void {
+        this.detailedInformationService.closeDetailedInformation();
         this.navigateService.navigateTo(['/search']);
     }
 

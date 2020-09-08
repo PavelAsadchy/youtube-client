@@ -17,6 +17,8 @@ export class SearchOptionsService {
 
     public searchNameStr: string = '';
 
+    public isDetailedMode: boolean = false;
+
     constructor() { }
 
     public searchOptionsBarToggle(): void {
@@ -43,6 +45,17 @@ export class SearchOptionsService {
         } else {
             this.sortByViewsUp = !this.sortByViewsUp;
         }
+    }
+
+    public initDetailedMode(): void {
+        this.isDetailedMode = true;
+        if (this.isSearchOptionsBarOpen) {
+            this.isSearchOptionsBarOpen = !this.isSearchOptionsBarOpen;
+        }
+    }
+
+    public closeDetailedMode(): void {
+        this.isDetailedMode = false;
     }
 
 }
