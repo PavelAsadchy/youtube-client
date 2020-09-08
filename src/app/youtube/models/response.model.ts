@@ -1,4 +1,4 @@
-import { ResponsePageInfo } from './response-page-info';
+import { ResponsePageInfo } from './response-page-info.model';
 import { ResponseItem } from './response-item.model';
 
 export class Response {
