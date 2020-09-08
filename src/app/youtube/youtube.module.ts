@@ -8,9 +8,10 @@ import { SortByDatePipe } from './pipes/sortByDate.pipe';
 import { BorderBottomColorDirective } from './directives/border-bottom-color.directive';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DetailedInformationComponent } from './components/detailed-information/detailed-information.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { YoutubeRoutingModule } from './youtube-routing.module';
+import { RequestInterceptor } from './interceptors/request.interceptor';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,13 @@ import { YoutubeRoutingModule } from './youtube-routing.module';
         YoutubeRoutingModule,
         HttpClientModule
     ],
-    providers: [],
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: RequestInterceptor,
+            multi: true
+        }
+    ],
     exports: [
         SearchResultsComponent,
         NotFoundComponent
