@@ -24,12 +24,10 @@ export class YoutubeDataService {
         part: 'snippet,statistics',
     };
 
-    private apiKey: string = 'AIzaSyD_9dpznUMdzn-tDiVIzlFvt3UrBFlUqB8';
-
     constructor(private httpClient: HttpClient) { }
 
     private getVideoIdFromSearchRequest(searchRequest: string): Observable<string> {
-        return this.httpClient.get<Response>(`${this.searchRequestParameters.baseUrl}?part=${this.searchRequestParameters.part}&type=${this.searchRequestParameters.type}&maxResults=${this.searchRequestParameters.maxResults}&key=${this.apiKey}&q=` + searchRequest)
+        return this.httpClient.get<Response>(`${this.searchRequestParameters.baseUrl}?part=${this.searchRequestParameters.part}&type=${this.searchRequestParameters.type}&maxResults=${this.searchRequestParameters.maxResults}&q=` + searchRequest)
             .pipe(
                 map((json: Response) => {
                     return Boolean(json)
@@ -46,7 +44,7 @@ export class YoutubeDataService {
         return this.getVideoIdFromSearchRequest(searchRequest)
             .pipe(
                 mergeMap(idForVideoRequest =>
-                    this.httpClient.get<SearchResponse>(`${this.videoRequestParameters.baseUrl}?part=${this.videoRequestParameters.part}&id=${idForVideoRequest}&key=${this.apiKey}`)
+                    this.httpClient.get<SearchResponse>(`${this.videoRequestParameters.baseUrl}?part=${this.videoRequestParameters.part}&id=${idForVideoRequest}`)
                     .pipe(
                         map(response => {
                             return Boolean(response)
