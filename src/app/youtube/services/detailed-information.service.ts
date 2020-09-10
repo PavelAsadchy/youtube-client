@@ -16,7 +16,7 @@ export class DetailedInformationService {
     public initDetailedInformation(clickedItem: SearchItem): void {
         this.selectedItem = clickedItem;
         this.initDatesLag(clickedItem);
-        this.searchOptionsService.initDetailedMode();
+        this.searchOptionsService.disableInput();
     }
 
     public initDatesLag(clickedItem: SearchItem): void {
@@ -26,6 +26,6 @@ export class DetailedInformationService {
     }
 
     public closeDetailedInformation(): void {
-        this.searchOptionsService.closeDetailedMode();
+        this.searchOptionsService.enableInput();
     }
 }

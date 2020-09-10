@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LoginService } from 'src/app/auth/services/login.service';
 
 @Injectable({
     providedIn: 'root'
@@ -17,9 +18,16 @@ export class SearchOptionsService {
 
     public searchNameStr: string = '';
 
-    public isDetailedMode: boolean = false;
+    public isInputDisabled: boolean = false;
 
-    constructor() { }
+    constructor(private loginService: LoginService) {
+        this.loginService.isUserAuthorised$
+            .subscribe(isAuth => {
+                isAuth
+                ? this.isInputDisabled = false
+                : this.isInputDisabled = true;
+            });
+    }
 
     public searchOptionsBarToggle(): void {
         this.isSearchOptionsBarOpen = !this.isSearchOptionsBarOpen;
@@ -47,15 +55,15 @@ export class SearchOptionsService {
         }
     }
 
-    public initDetailedMode(): void {
-        this.isDetailedMode = true;
+    public disableInput(): void {
+        this.isInputDisabled = true;
         if (this.isSearchOptionsBarOpen) {
             this.isSearchOptionsBarOpen = !this.isSearchOptionsBarOpen;
         }
     }
 
-    public closeDetailedMode(): void {
-        this.isDetailedMode = false;
+    public enableInput(): void {
+        this.isInputDisabled = false;
     }
 
 }

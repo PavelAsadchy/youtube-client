@@ -4,14 +4,14 @@
         <input
             class="search-input__field"
             type="search"
-            [disabled]="searchOptionsService.isDetailedMode"
+            [disabled]="searchOptionsService.isInputDisabled"
             #searchInput>
         <button
             mat-raised-button
             color="primary"
             class="search-input__settings-btn">
             <mat-icon
-                *ngIf="!searchOptionsService.isDetailedMode"
+                *ngIf="!searchOptionsService.isInputDisabled"
                 (click)="searchOptionsService.searchOptionsBarToggle()">
                 tune
             </mat-icon>

@@ -4,6 +4,7 @@ import { SearchOptionsService } from 'src/app/shared/services/search-options.ser
 import { fromEvent, Subscription } from 'rxjs';
 import { map, startWith, debounceTime, distinctUntilChanged, filter } from 'rxjs/operators';
 import { YoutubeService } from 'src/app/youtube/services/youtube.service';
+import { LoginService } from 'src/app/auth/services/login.service';
 
 @Component({
     selector: 'app-search-input',
@@ -18,7 +19,8 @@ export class SearchInputComponent implements AfterViewInit, OnDestroy {
     public searchInput: ElementRef;
 
     constructor(public searchOptionsService: SearchOptionsService,
-                public youtubeService: YoutubeService) { }
+                public youtubeService: YoutubeService,
+                private loginService: LoginService) { }
 
     public ngAfterViewInit(): void {
         this.subscription = fromEvent(this.searchInput.nativeElement, 'keyup')
@@ -34,10 +36,21 @@ export class SearchInputComponent implements AfterViewInit, OnDestroy {
                 this.youtubeService.startLoading();
             }
         });
+
+        this.loginService.isUserAuthorised$
+        .subscribe(isAuth => {
+            if (!isAuth) {
+                this.clearInput();
+            }
+        });
     }
 
     public ngOnDestroy(): void {
         this.subscription.unsubscribe();
+    }
+
+    public clearInput(): void {
+        this.searchInput.nativeElement.value = '';
     }
 
 }

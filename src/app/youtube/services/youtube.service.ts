@@ -4,6 +4,7 @@ import { SearchItem } from '../models/search-item.model';
 import { EventEmitter } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { LoginService } from 'src/app/auth/services/login.service';
 
 @Injectable({
     providedIn: 'root'
@@ -18,13 +19,21 @@ export class YoutubeService {
 
     public searchResults: SearchItem[] = [];
 
-    constructor(private youtubeDataService: YoutubeDataService) {
+    constructor(private youtubeDataService: YoutubeDataService,
+                private loginService: LoginService) {
         this.searchRequest$
             .pipe(
                 switchMap(searchRequest =>
                     this.youtubeDataService.loadYoutubeData(searchRequest))
             ).subscribe(searchResult =>
                 this.initSearchResults(searchResult));
+
+        this.loginService.isUserAuthorised$
+            .subscribe(isAuth => {
+                if (!isAuth) {
+                    this.searchResults = [];
+                }
+            });
     }
 
     private initSearchResults(searchResults: SearchItem[]): void {
