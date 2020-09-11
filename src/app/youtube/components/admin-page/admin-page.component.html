@@ -1,0 +1,50 @@
+<form
+    class="admin-page__admin-form admin-form"
+    [formGroup]="adminForm"
+    (ngSubmit)="onSubmit()">
+
+    <legend class="admin-form__legend">
+        Create new card
+    </legend>
+
+    <label class="admin-form__label">
+        Title
+        <input
+            type="text"
+            class="admin-form__input"
+            formControlName="title">
+    </label>
+
+    <label class="admin-form__label">
+        Discription
+        <input
+            type="text"
+            class="admin-form__input"
+            formControlName="discription">
+    </label>
+
+    <label class="admin-form__label">
+        Img
+        <input
+            type="text"
+            class="admin-form__input"
+            formControlName="img">
+    </label>
+
+    <label class="admin-form__label">
+        Link video
+        <input
+            type="text"
+            class="admin-form__input"
+            formControlName="linkVideo">
+    </label>
+
+	<button
+        mat-raised-button
+        color="primary"
+        class="admin-form__submit"
+        [disabled]="adminForm.invalid">
+        Create card
+    </button>
+
+</form>

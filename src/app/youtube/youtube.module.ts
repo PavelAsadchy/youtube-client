@@ -12,6 +12,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { YoutubeRoutingModule } from './youtube-routing.module';
 import { RequestInterceptor } from './interceptors/request.interceptor';
+import { AdminPageComponent } from './components/admin-page/admin-page.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { RequestInterceptor } from './interceptors/request.interceptor';
         SearchPipe,
         BorderBottomColorDirective,
         NotFoundComponent,
-        DetailedInformationComponent
+        DetailedInformationComponent,
+        AdminPageComponent
     ],
     imports: [
         SharedModule,

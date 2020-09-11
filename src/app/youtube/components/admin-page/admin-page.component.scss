@@ -1,14 +1,13 @@
 @import "../../../shared/UI/colors.scss";
 
-.login-page {
+.admin-page {
 
-	&__login-form {
+	&__admin-form {
 		margin: 220px auto 0;
 	}
-
 }
 
-.login-form {
+.admin-form {
 	display: flex;
 	flex-direction: column;
 	padding: 20px;
