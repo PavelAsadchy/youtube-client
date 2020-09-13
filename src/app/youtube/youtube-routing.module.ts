@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { DetailedInformationComponent } from './components/detailed-information/detailed-information.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
+import { CanProceedToDetailedGuard } from '../shared/guards/can-proceed-to-detailed.guard';
 
 const routes: Routes = [
     {
@@ -15,7 +16,8 @@ const routes: Routes = [
     },
     {
         path: ':id',
-        component: DetailedInformationComponent
+        component: DetailedInformationComponent,
+        canActivate: [CanProceedToDetailedGuard]
     }
 ];
 
