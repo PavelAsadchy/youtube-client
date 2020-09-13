@@ -1,7 +1,7 @@
 <form
     class="admin-page__admin-form admin-form"
     [formGroup]="adminForm"
-    (ngSubmit)="onSubmit()">
+    (ngSubmit)="addCustomCard()">
 
     <legend class="admin-form__legend">
         Create new card
@@ -20,7 +20,7 @@
         <input
             type="text"
             class="admin-form__input"
-            formControlName="discription">
+            formControlName="description">
     </label>
 
     <label class="admin-form__label">
