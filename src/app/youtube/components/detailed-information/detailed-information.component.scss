@@ -78,6 +78,10 @@ h1, h3, h5, p {
         }
     }
 
+    &__link {
+        margin: 10px 0;
+    }
+
     &__statistics {
 		display: flex;
         justify-content: center;
