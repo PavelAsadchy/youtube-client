@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { DetailedInformationService } from 'src/app/youtube/services/detailed-information.service';
+import { NavigateService } from '../services/navigate.service';
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +10,7 @@ import { DetailedInformationService } from 'src/app/youtube/services/detailed-in
 export class CanProceedToDetailedGuard implements CanActivate {
 
     constructor(private detailedInformationService: DetailedInformationService,
-                private router: Router) {}
+                private navigateService: NavigateService) {}
 
     public canActivate(
         next: ActivatedRouteSnapshot,
@@ -18,7 +19,7 @@ export class CanProceedToDetailedGuard implements CanActivate {
             if (this.detailedInformationService.selectedItem) {
                 return true;
             } else {
-                this.router.navigate(['/search']);
+                this.navigateService.navigateTo(['/search']);
             }
             return false;
     }
