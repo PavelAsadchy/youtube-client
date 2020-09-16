@@ -1,4 +1,4 @@
-export interface CustomCard {
+export interface CustomItem {
     title: string;
     description: string;
     linkToImage: string;

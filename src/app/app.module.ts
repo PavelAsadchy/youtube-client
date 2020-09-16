@@ -8,7 +8,11 @@ import { YoutubeModule } from './youtube/youtube.module';
 import { AuthModule } from './auth/auth.module';
 
 import { StoreModule } from '@ngrx/store';
-import { youtubeClientReducer } from './redux/reducers/youtube-client.reducer';
+import { youtubeClientReducers } from './redux/reducers/youtube-client.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { YoutubeCardEffects } from './redux/effects/youtube-card.effects';
 
 @NgModule({
     declarations: [
@@ -20,9 +24,9 @@ import { youtubeClientReducer } from './redux/reducers/youtube-client.reducer';
         CoreModule,
         YoutubeModule,
         AuthModule,
-        StoreModule.forRoot({
-            customCard: youtubeClientReducer
-        })
+        StoreModule.forRoot(youtubeClientReducers),
+        EffectsModule.forRoot([YoutubeCardEffects]),
+        StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
     ],
     providers: [],
     bootstrap: [AppComponent]

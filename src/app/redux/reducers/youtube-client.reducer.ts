@@ -1,21 +1,10 @@
-import { Action } from '@ngrx/store';
-import { CustomCard } from '../models/custom-card.model';
-import { YoutubeClientActions, youtubeCLientActionsType} from '../actions/youtube-client.actions';
-import { State } from '../state';
+import { ActionReducerMap } from '@ngrx/store';
+import { YoutubeClientState } from '../state/youtube-client.state';
+import { customCardReducer } from './custom-card.reducer';
+import { youtubeCardReducer } from './youtube-card.reducer';
 
-const initialState: CustomCard = {
-    title: 'title',
-    description: 'description',
-    linkToImage: 'linkToImage',
-    linkToVideo: 'linkToVideo',
-    creationDate: new Date(),
+// tslint:disable-next-line: no-any
+export const youtubeClientReducers: ActionReducerMap<YoutubeClientState, any> = {
+    customCard: customCardReducer,
+    youtubeCard: youtubeCardReducer
 };
-
-export function youtubeClientReducer(state: CustomCard[], action: YoutubeClientActions): CustomCard[] {
-    switch (action.type) {
-        case youtubeCLientActionsType.addCustomCard:
-            return [...state, action.payload];
-        default:
-            return state;
-    }
-}

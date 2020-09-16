@@ -1,22 +1,26 @@
-<mat-card>
+<mat-card
+	class="custom-item">
 
 	<mat-card-title>
-		{{ customCard.title }}
+		{{ customItem.title }}
 	</mat-card-title>
 
 	<img
 		mat-card-image
-		src="{{ customCard.linkToImage }}"
-		alt="{{ customCard.title }}">
+		src="{{ customItem.linkToImage }}"
+		alt="{{ customItem.title }}">
 
 	<mat-card-content>
 		<p>
-			{{ customCard.description }}
+			{{ customItem.description }}
+		</p>
+		<p>
+			{{ customItem.creationDate | date: "fullDate" }}
 		</p>
 		<a
 			mat-raised-button
 			color="primary"
-			href="{{ customCard.linkToVideo }}"
+			href="{{ customItem.linkToVideo }}"
 			target="_blank">
 			Go to video...
 		</a>

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CustomCard } from 'src/app/redux/models/custom-card.model';
+import { CustomItem } from '../../models/custom-item.model';
 
 @Component({
     selector: 'app-custom-card',
@@ -9,7 +9,7 @@ import { CustomCard } from 'src/app/redux/models/custom-card.model';
 export class CustomCardComponent {
 
     @Input()
-    public customCard: CustomCard;
+    public customItem: CustomItem;
 
     constructor() { }
 

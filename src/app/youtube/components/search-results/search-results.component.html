@@ -2,10 +2,10 @@
     class="search-results">
     <li 
         class="search-results__item"
-        *ngFor="let customCard of customCards | async">
+        *ngFor="let customItem of customCards$ | async">
             
         <app-custom-card
-            [customCard]="customCard">
+            [customItem]="customItem">
         </app-custom-card>
     </li>
 </ul>

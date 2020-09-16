@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Store } from '@ngrx/store';
-import { State } from '../../../redux/state';
-import { CustomCard } from '../../../redux/models/custom-card.model';
-import * as YoutubeClientActions from '../../../redux/actions/youtube-client.actions';
+import { YoutubeClientState } from '../../../redux/state/youtube-client.state';
+import * as CustomCardActions from '../../../redux/actions/custom-card.actions';
+import { NavigateService } from 'src/app/shared/services/navigate.service';
 
 @Component({
     selector: 'app-admin-page',
@@ -20,16 +20,18 @@ export class AdminPageComponent {
         linkVideo: new FormControl('', Validators.required),
     });
 
-    constructor(private store: Store<State>) { }
+    constructor(private store$: Store<YoutubeClientState>,
+                private navigateService: NavigateService) { }
 
     public addCustomCard(): void {
-        this.store.dispatch(new YoutubeClientActions.AddCustomCardAction({
+        this.store$.dispatch(new CustomCardActions.AddCustomCardAction({
             title: this.adminForm.get('title').value,
             description: this.adminForm.get('description').value,
             linkToImage: this.adminForm.get('img').value,
             linkToVideo: this.adminForm.get('linkVideo').value,
             creationDate: new Date()
         }));
+        this.navigateService.navigateTo(['/search']);
     }
 
 }

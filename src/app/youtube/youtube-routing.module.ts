@@ -11,10 +11,6 @@ const routes: Routes = [
         component: SearchResultsComponent
     },
     {
-        path: 'admin',
-        component: AdminPageComponent
-    },
-    {
         path: ':id',
         component: DetailedInformationComponent,
         canActivate: [CanProceedToDetailedGuard]
