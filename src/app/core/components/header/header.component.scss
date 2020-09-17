@@ -1,0 +1,23 @@
+.header {
+
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	flex-wrap: wrap-reverse;
+	height: 200px;
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap-reverse;
+		width: 80%;
+	}
+
+	&__search-block {
+		display: flex;
+		flex-grow: 1;
+	}
+}

@@ -1,0 +1,29 @@
+<ul
+    class="search-results">
+    <li 
+        class="search-results__item"
+        *ngFor="let customItem of customCards$ | async">
+            
+        <app-custom-card
+            [customItem]="customItem">
+        </app-custom-card>
+    </li>
+</ul>
+<ul
+    class="search-results">
+    <li
+        class="search-results__item"
+        *ngFor="let searchItem of youtubeService.searchResults
+            | sortByDate:searchOptionsService.isSortingByDateMode:searchOptionsService.sortByDateUp
+            | sortByViews:searchOptionsService.isSortingByViewsMode:searchOptionsService.sortByViewsUp
+            | searchName:searchOptionsService.searchNameStr">
+
+        <app-search-item
+            [item]="searchItem"
+            (selectedItem)="selectItem($event)">
+        </app-search-item>
+
+    </li>
+</ul>
+
+<mat-spinner *ngIf="youtubeService.isLoading$ | async"></mat-spinner>
