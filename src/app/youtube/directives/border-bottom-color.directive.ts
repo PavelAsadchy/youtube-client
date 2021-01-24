@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Renderer2, Input, OnInit } from '@angular/core';
-import { DatesLagValue, DatesLagColor } from '../_constants/datesLag.constants';
+import { DatesLagValue, DatesLagColor } from '../_constants/dates-lag.const';
 
 @Directive({
     selector: '[appBorderBottomColor]'

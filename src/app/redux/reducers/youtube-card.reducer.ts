@@ -1,7 +1,6 @@
-import { YoutubeCardActions, youtubeCardActionsType } from '../actions/youtube-card.actions';
 import { initialYoutubeCardState, YoutubeCardState } from '../state/models/youtube-card.state';
+import { YoutubeCardActions, youtubeCardActionsType } from '../actions/youtube-card.actions';
 
-// tslint:disable-next-line: typedef
 export const youtubeCardReducer = (
     state = initialYoutubeCardState,
     action: YoutubeCardActions): YoutubeCardState => {
@@ -9,8 +8,21 @@ export const youtubeCardReducer = (
             case youtubeCardActionsType.getYoutubeCard:
                 return {
                     ...state,
-                    youtubeCard: action.payload
+                    loading: true,
+                    
                 };
+            case youtubeCardActionsType.getYoutubeCardSuccess:
+                return {
+                    ...state,
+                    loading: false,
+                    youtubeCard: action.payload,
+                };
+            case youtubeCardActionsType.getYoutubeCardFail:
+                return {
+                    ...state,
+                    loading: false,
+                    youtubeCard: [],
+                }
             default:
                 return state;
         }

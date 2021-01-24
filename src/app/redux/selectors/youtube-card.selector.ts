@@ -2,11 +2,14 @@ import { createSelector } from '@ngrx/store';
 import { YoutubeCardState } from '../state/models/youtube-card.state';
 import { YoutubeClientState } from '../state/youtube-client.state';
 
-// tslint:disable-next-line: typedef
-const selectYoutubeCardFeature = (state: YoutubeClientState) => state.youtubeCard;
+const selectYoutubeCardFeature = (state: YoutubeClientState) => state.youtube;
 
-// tslint:disable-next-line: typedef
 export const selectYoutubeCard = createSelector(
     selectYoutubeCardFeature,
     (state: YoutubeCardState) => state.youtubeCard
+);
+
+export const selectYoutubeCardLoading = createSelector(
+    selectYoutubeCardFeature,
+    (state: YoutubeCardState) => state.loading
 );

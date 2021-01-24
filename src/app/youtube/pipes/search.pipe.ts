@@ -8,7 +8,7 @@ export class SearchPipe implements PipeTransform {
     public transform(searchResults: SearchItem[], inputValue: string): SearchItem[] {
         return searchResults
             .filter(searchItem =>
-                searchItem.snippet.title.toUpperCase().toLowerCase()
-                .includes(inputValue.toUpperCase().toLowerCase()));
+                searchItem.snippet.title.toLowerCase()
+                .includes(inputValue.toLowerCase()));
     }
 }

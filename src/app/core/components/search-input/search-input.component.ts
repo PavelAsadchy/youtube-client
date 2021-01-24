@@ -5,6 +5,9 @@ import { fromEvent, Subscription } from 'rxjs';
 import { map, startWith, debounceTime, distinctUntilChanged, filter } from 'rxjs/operators';
 import { YoutubeService } from 'src/app/youtube/services/youtube.service';
 import { LoginService } from 'src/app/auth/services/login.service';
+import { Store } from '@ngrx/store';
+import { YoutubeCardState } from 'src/app/redux/state/models/youtube-card.state';
+import { GetYoutubeCardAction } from 'src/app/redux/actions/youtube-card.actions';
 
 @Component({
     selector: 'app-search-input',
@@ -20,7 +23,8 @@ export class SearchInputComponent implements AfterViewInit, OnDestroy {
 
     constructor(public searchOptionsService: SearchOptionsService,
                 public youtubeService: YoutubeService,
-                private loginService: LoginService) { }
+                private loginService: LoginService,
+                private store: Store<YoutubeCardState>) { }
 
     public ngAfterViewInit(): void {
         this.subscription = fromEvent(this.searchInput.nativeElement, 'keyup')
@@ -32,8 +36,9 @@ export class SearchInputComponent implements AfterViewInit, OnDestroy {
                 distinctUntilChanged()
         ).subscribe((searchRequest: string) => {
             if (searchRequest) {
-                this.youtubeService.searchRequest$.emit(searchRequest);
-                this.youtubeService.startLoading();
+                this.store.dispatch(new GetYoutubeCardAction(searchRequest));
+                // this.youtubeService.searchRequest$.emit(searchRequest);
+                // this.youtubeService.startLoading();
             }
         });
 

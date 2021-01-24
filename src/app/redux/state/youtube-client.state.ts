@@ -2,11 +2,11 @@ import { CustomCardState, initialCustomCardState } from './models/custom-card.st
 import { YoutubeCardState, initialYoutubeCardState } from './models/youtube-card.state';
 
 export interface YoutubeClientState {
-    readonly customCard: CustomCardState;
-    readonly youtubeCard: YoutubeCardState;
+    readonly custom: CustomCardState;
+    readonly youtube: YoutubeCardState;
 }
 
 export const initialYoutubeClientState: YoutubeClientState = {
-    customCard: initialCustomCardState,
-    youtubeCard: initialYoutubeCardState
+    custom: initialCustomCardState,
+    youtube: initialYoutubeCardState
 };

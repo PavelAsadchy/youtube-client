@@ -23,7 +23,7 @@ export class LoginService {
             );
     }
 
-    public getAuthToken(): any {
+    public getAuthToken(): string {
         const savedAuthToken: any = localStorage.getItem(LoginService.authLocalStorageKey);
         if (savedAuthToken) {
             const savedAuthName: string = JSON.parse(savedAuthToken).login;
