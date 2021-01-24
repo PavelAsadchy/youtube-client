@@ -8,19 +8,19 @@ export class SortByDatePipe implements PipeTransform {
     public transform(
         searchResults: SearchItem[], isSortingMode: boolean, sortDirection: boolean): SearchItem[] {
             if (isSortingMode) {
+                const newArr: SearchItem[] = searchResults.slice();
                 sortDirection === true
-                ? searchResults.sort(function(a: SearchItem, b: SearchItem): any {
+                ? newArr.sort(function(a: SearchItem, b: SearchItem): any {
                     const start: any = new Date(a.snippet.publishedAt);
                     const end: any = new Date(b.snippet.publishedAt);
                     return (start - end);
                 })
-                : searchResults.sort(function(a: SearchItem, b: SearchItem): any {
+                : newArr.sort(function(a: SearchItem, b: SearchItem): any {
                     const start: any = new Date(a.snippet.publishedAt);
                     const end: any = new Date(b.snippet.publishedAt);
                     return (end - start);
                 });
 
-                const newArr: SearchItem[] = searchResults.slice();
                 return newArr;
             } else {
                 return searchResults;
