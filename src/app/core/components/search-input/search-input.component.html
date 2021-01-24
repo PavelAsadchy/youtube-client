@@ -1,0 +1,57 @@
+<div class="search-input">
+    <div class="search-input__search-block">
+        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+        <input
+            class="search-input__field"
+            type="search"
+            [disabled]="searchOptionsService.isInputDisabled"
+            #searchInput>
+        <button
+            mat-raised-button
+            color="primary"
+            class="search-input__settings-btn">
+            <mat-icon
+                *ngIf="!searchOptionsService.isInputDisabled"
+                (click)="searchOptionsService.searchOptionsBarToggle()">
+                tune
+            </mat-icon>
+        </button>
+    </div>
+
+    <div
+        class="search-input__sorting-options"
+        *ngIf="searchOptionsService.isSearchOptionsBarOpen">
+
+        <span class="search-input__sorting-by">
+            Sorting by:
+        </span>
+        <a
+            mat-button color="primary"
+            class="search-input__sorting-action"
+            (click)="searchOptionsService.sortByDateToggle()">
+            date
+
+            <mat-icon *ngIf="searchOptionsService.sortByDateUp; else down">keyboard_arrow_up</mat-icon>
+            <ng-template #down>
+                <mat-icon>keyboard_arrow_down</mat-icon>
+            </ng-template>
+        </a>
+        <a
+            mat-button color="primary"
+            class="search-input__sorting-action"
+            (click)="searchOptionsService.sortByViewsToggle()">
+            count of views
+
+            <mat-icon *ngIf="searchOptionsService.sortByViewsUp; else down">keyboard_arrow_up</mat-icon>
+        </a>
+        <a
+            mat-button color="primary"
+            class="search-input__sorting-action">
+            by word or sentence
+        </a>
+        <input
+            type="search"
+            class="search-input__search-input"
+            [(ngModel)]="searchOptionsService.searchNameStr">    
+    </div>
+</div>
