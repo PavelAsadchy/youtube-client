@@ -1,8 +1,7 @@
-import { createSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { CustomCardState } from '../state/models/custom-card.state';
-import { YoutubeClientState } from '../state/youtube-client.state';
 
-const selectCustomCardFeature = (state: YoutubeClientState) => state.custom;
+const selectCustomCardFeature = createFeatureSelector<CustomCardState>('customCard');
 
 export const selectCustomCard = createSelector(
     selectCustomCardFeature,

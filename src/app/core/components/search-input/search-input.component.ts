@@ -3,7 +3,6 @@ import { Component, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@ang
 import { SearchOptionsService } from 'src/app/shared/services/search-options.service';
 import { fromEvent, Subscription } from 'rxjs';
 import { map, startWith, debounceTime, distinctUntilChanged, filter } from 'rxjs/operators';
-import { YoutubeService } from 'src/app/youtube/services/youtube.service';
 import { LoginService } from 'src/app/auth/services/login.service';
 import { Store } from '@ngrx/store';
 import { YoutubeCardState } from 'src/app/redux/state/models/youtube-card.state';
@@ -22,7 +21,6 @@ export class SearchInputComponent implements AfterViewInit, OnDestroy {
     public searchInput: ElementRef;
 
     constructor(public searchOptionsService: SearchOptionsService,
-                public youtubeService: YoutubeService,
                 private loginService: LoginService,
                 private store: Store<YoutubeCardState>) { }
 
@@ -37,8 +35,6 @@ export class SearchInputComponent implements AfterViewInit, OnDestroy {
         ).subscribe((searchRequest: string) => {
             if (searchRequest) {
                 this.store.dispatch(new GetYoutubeCardAction(searchRequest));
-                // this.youtubeService.searchRequest$.emit(searchRequest);
-                // this.youtubeService.startLoading();
             }
         });
 

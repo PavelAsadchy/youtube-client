@@ -3,14 +3,13 @@ import { SearchItem } from 'src/app/youtube/models/search-item.model';
 import { SearchOptionsService } from 'src/app/shared/services/search-options.service';
 import { DetailedInformationService } from '../../services/detailed-information.service';
 import { NavigateService } from 'src/app/shared/services/navigate.service';
-import { YoutubeService } from '../../services/youtube.service';
 
 import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { YoutubeClientState } from '../../../redux/state/youtube-client.state';
 import { CustomItem } from '../../models/custom-item.model';
 import { selectCustomCard } from 'src/app/redux/selectors/custom-card.selector';
-import { selectYoutubeCard } from 'src/app/redux/selectors/youtube-card.selector';
+import { selectYoutubeCard, selectYoutubeCardLoading } from 'src/app/redux/selectors/youtube-card.selector';
 
 @Component({
     selector: 'app-search-results',
@@ -27,10 +26,13 @@ export class SearchResultsComponent {
         select(selectCustomCard)
     );
 
+    public isLoading$: Observable<boolean> = this.store$.pipe(
+        select(selectYoutubeCardLoading)
+    );
+
     constructor(public searchOptionsService: SearchOptionsService,
                 public detailedInformationService: DetailedInformationService,
                 public navigateService: NavigateService,
-                public youtubeService: YoutubeService,
                 private store$: Store<YoutubeClientState>) {}
 
     public selectItem(clickedItem: SearchItem): void {
