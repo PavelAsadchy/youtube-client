@@ -10,6 +10,7 @@ import { select, Store } from '@ngrx/store';
 import { YoutubeClientState } from '../../../redux/state/youtube-client.state';
 import { CustomItem } from '../../models/custom-item.model';
 import { selectCustomCard } from 'src/app/redux/selectors/custom-card.selector';
+import { selectYoutubeCard } from 'src/app/redux/selectors/youtube-card.selector';
 
 @Component({
     selector: 'app-search-results',
@@ -17,6 +18,10 @@ import { selectCustomCard } from 'src/app/redux/selectors/custom-card.selector';
     styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent {
+
+    public youtubeCards$: Observable<SearchItem[]> = this.store$.pipe(
+        select(selectYoutubeCard)
+    );
 
     public customCards$: Observable<CustomItem[]> = this.store$.pipe(
         select(selectCustomCard)

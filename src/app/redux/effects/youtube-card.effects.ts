@@ -14,16 +14,12 @@ export class YoutubeCardEffects {
     ) {}
 
     @Effect()
-    getYoutubeCard$() {
-        return this.actions$.pipe(
-            ofType(YoutubeActions.youtubeCardActionsType.getYoutubeCard),
-            switchMap((action: {type: string, payload: string}) => {
-                console.log('act');
-                return this.youtubeDataService.loadYoutubeData(action.payload).pipe(
-                    map((response: SearchItem[]) => of(new YoutubeActions.GetYoutubeCardSuccessAction(response)))
-                )
-            })
-        ),
-        catchError((err) => of(new YoutubeActions.GetYoutubeCardFailAction(err)));
-    };
+    getYoutubeCard$ = this.actions$.pipe(
+        ofType(YoutubeActions.youtubeCardActionsType.getYoutubeCard),
+        switchMap((action: {type: string, payload: string}) => {
+            return this.youtubeDataService.loadYoutubeData(action.payload).pipe(
+                map((response: SearchItem[]) => new YoutubeActions.GetYoutubeCardSuccessAction(response))
+            )
+        })
+    );
 }

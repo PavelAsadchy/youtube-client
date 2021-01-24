@@ -13,7 +13,7 @@
     class="search-results">
     <li
         class="search-results__item"
-        *ngFor="let searchItem of youtubeService.searchResults
+        *ngFor="let searchItem of (youtubeCards$ | async)
             | sortByDate:searchOptionsService.isSortingByDateMode:searchOptionsService.sortByDateUp
             | sortByViews:searchOptionsService.isSortingByViewsMode:searchOptionsService.sortByViewsUp
             | searchName:searchOptionsService.searchNameStr">
